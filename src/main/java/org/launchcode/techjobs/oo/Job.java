@@ -101,36 +101,35 @@ public class Job {
 
         String toStr = System.lineSeparator() + "ID: " + this.getId() + System.lineSeparator();
 
-        if (this.getName() == null) {
+        if (this.getName() == null || this.getName() == "") {
             toStr += "Name: Data not available" + System.lineSeparator();
         } else {
             toStr += "Name: " + this.getName() + System.lineSeparator();
         }
 
-        if (this.getEmployer() == null) {
+        if (this.getEmployer() == null || this.getEmployer().getValue().isEmpty()) {
             toStr += "Employer: Data not available" + System.lineSeparator();
         } else {
             toStr += "Employer: " + this.getEmployer() + System.lineSeparator();
         }
 
-        if (this.getLocation() == null) {
+        if (this.getLocation() == null || this.getLocation().getValue().isEmpty()) {
             toStr += "Location: Data not available" + System.lineSeparator();
         } else {
             toStr += "Location: " + this.getLocation() + System.lineSeparator();
         }
 
-        if (this.getPositionType() == null) {
+        if (this.getPositionType() == null || this.getPositionType().getValue().isEmpty()) {
             toStr += "Position Type: Data not available" + System.lineSeparator();
         } else {
             toStr += "Position Type: " + this.getPositionType() + System.lineSeparator();
         }
 
-        if (this.getCoreCompetency() == null) {
+        if (this.getCoreCompetency() == null || this.getCoreCompetency().getValue().isEmpty()) {
             toStr += "Core Competency: Data not available" + System.lineSeparator();
         } else {
             toStr += "Core Competency: " + this.getCoreCompetency() + System.lineSeparator();
         }
-
 
         return toStr;
     }
