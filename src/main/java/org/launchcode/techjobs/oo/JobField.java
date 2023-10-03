@@ -39,4 +39,11 @@ public abstract class JobField {
     public void setValue(String value) {
         this.value = value;
     }
+
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (!(o instanceof JobField)) return false;
+        JobField jobfield = (JobField) o;
+        return getId() == jobfield.getId();
+    }
 }
