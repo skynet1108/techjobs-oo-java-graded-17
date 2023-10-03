@@ -96,4 +96,43 @@ public class Job {
         return Objects.hash(id);
     }
 
+    @Override
+    public String toString() {
+
+        String toStr = System.lineSeparator() + "ID: " + this.getId() + System.lineSeparator();
+
+        if (this.getName() == null) {
+            toStr += "Name: Data not available" + System.lineSeparator();
+        } else {
+            toStr += "Name: " + this.getName() + System.lineSeparator();
+        }
+
+        if (this.getEmployer() == null) {
+            toStr += "Employer: Data not available" + System.lineSeparator();
+        } else {
+            toStr += "Employer: " + this.getEmployer() + System.lineSeparator();
+        }
+
+        if (this.getLocation() == null) {
+            toStr += "Location: Data not available" + System.lineSeparator();
+        } else {
+            toStr += "Location: " + this.getLocation() + System.lineSeparator();
+        }
+
+        if (this.getPositionType() == null) {
+            toStr += "Position Type: Data not available" + System.lineSeparator();
+        } else {
+            toStr += "Position Type: " + this.getPositionType() + System.lineSeparator();
+        }
+
+        if (this.getCoreCompetency() == null) {
+            toStr += "Core Competency: Data not available" + System.lineSeparator();
+        } else {
+            toStr += "Core Competency: " + this.getCoreCompetency() + System.lineSeparator();
+        }
+
+
+        return toStr;
+    }
+
 }

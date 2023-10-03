@@ -2,6 +2,8 @@ package org.launchcode.techjobs.oo;
 
 import org.junit.Test;
 
+import java.util.ArrayList;
+
 import static org.junit.Assert.*;
 
 public class JobTest extends AbstractTest {
@@ -47,5 +49,60 @@ public class JobTest extends AbstractTest {
                 new PositionType("Quality control"), new CoreCompetency("Persistence"));
 
         assertEquals(job4.equals(job5), false);
+    }
+
+    @Test
+    public void testToStringStartsAndEndsWithNewLine() {
+
+        Job job6 = new Job("Product tester", new Employer("SC"), new Location("Africa"),
+                new PositionType("Quality control"), new CoreCompetency("Persistence"));
+
+        String toStr = job6.toString();
+        String c = System.lineSeparator();
+        System.out.println(toStr.substring(0, 1));
+        assertEquals(toStr.substring(0, 1), c);
+        assertEquals(toStr.substring(toStr.length() - 1), System.lineSeparator());
+    }
+
+
+    @Test
+    public void testToStringContainsCorrectLabelsAndData() {
+        Job job7 = new Job("Product tester", new Employer("SC"), new Location("Africa"),
+                new PositionType("Quality control"), new CoreCompetency("Persistence"));
+
+        ArrayList<String> labels = new ArrayList<String>();
+
+        labels.add("ID");
+        labels.add("Name");
+        labels.add("Employer");
+        labels.add("Location");
+        labels.add("Position Type");
+        labels.add("Core Competency");
+
+        String labelsAndData = System.lineSeparator()
+                + "ID: " + job7.getId() + System.lineSeparator()
+                + "Name: " + job7.getName() + System.lineSeparator()
+                + "Employer: " + job7.getEmployer() + System.lineSeparator()
+                + "Location: " + job7.getLocation() + System.lineSeparator()
+                + "Position Type: " + job7.getPositionType() + System.lineSeparator()
+                + "Core Competency: " + job7.getCoreCompetency() + System.lineSeparator();
+
+        assertEquals(job7.toString(), labelsAndData);
+    }
+
+    @Test
+    public void testToStringHandlesEmptyField() {
+        Job job8 = new Job();
+
+        String emptyFields = System.lineSeparator()
+                + "ID: " + job8.getId() + System.lineSeparator()
+                + "Name: Data not available" + System.lineSeparator()
+                + "Employer: Data not available" + System.lineSeparator()
+                + "Location: Data not available" + System.lineSeparator()
+                + "Position Type: Data not available" + System.lineSeparator()
+                + "Core Competency: Data not available" + System.lineSeparator();
+
+        String toStr = job8.toString();
+        assertEquals(emptyFields, toStr);
     }
 }
